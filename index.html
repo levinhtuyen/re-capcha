@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite App</title>
+    {#
+    <script type="text/javascript">
+      var verifyCallback = function (response) {
+        alert(response);
+      };
+      var widgetId1;
+      var onloadCallback = function () {
+        widgetId1 = grecaptcha.render("example1", {
+          sitekey: "6LdGh3ggAAAAAOR9nj2lIxW6hb9DWntAMz94F5q3",
+          callback: verifyCallback,
+          theme: "light",
+        });
+      };
+    </script>
+    <script
+      src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
+      async
+      defer
+    ></script>
+    #}
+  </head>
+
+  <body>
+    <div
+      sitekey="6LcHsnggAAAAAPx4H3Hc6UZvb2RD_fyQtJiN6yXW"
+      class="g-recaptcha"
+      id="recaptcha1"
+    ></div>
+
+    <div id="app"></div>
+  </body>
+  <script src="https://www.google.com/recaptcha/api.js?render=6LcHsnggAAAAAPx4H3Hc6UZvb2RD_fyQtJiN6yXW"></script>
+  <script type="text/javascript">
+    var recaptcha1;
+
+    var onloadCallback = function () {
+      //Render the recaptcha1 on the element with ID "recaptcha1"
+      recaptcha1 = grecaptcha.render("recaptcha1", {
+        sitekey: "6LcHsnggAAAAAPx4H3Hc6UZvb2RD_fyQtJiN6yXW", //Replace this with your Site key
+        theme: "",
+      });
+
+      grecaptcha.reset(recaptcha1);
+    };
+  </script>
+</html>
