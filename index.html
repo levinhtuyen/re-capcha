@@ -5,16 +5,12 @@
     <link rel="icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vite App</title>
-    {#
+
     <script type="text/javascript">
-      var verifyCallback = function (response) {
-        alert(response);
-      };
       var widgetId1;
       var onloadCallback = function () {
         widgetId1 = grecaptcha.render("example1", {
           sitekey: "6LdGh3ggAAAAAOR9nj2lIxW6hb9DWntAMz94F5q3",
-          callback: verifyCallback,
           theme: "light",
         });
       };
@@ -24,30 +20,37 @@
       async
       defer
     ></script>
-    #}
+    <script type="text/javascript">
+      var verifyCallback = function (response) {
+        alert(response);
+      };
+      var widgetId2;
+      var onloadCallback1 = function () {
+        widgetId2 = grecaptcha.render("example2", {
+          sitekey: "6LfRp3ggAAAAAGzyG5UIdHEaJUN4aNHwvQA6OwT7",
+          callback: verifyCallback,
+          theme: "light",
+        });
+      };
+    </script>
+    <script
+      src="https://www.google.com/recaptcha/api.js?onload=onloadCallback1"
+      async
+      defer
+    ></script>
   </head>
-
   <body>
-    <div
-      sitekey="6LcHsnggAAAAAPx4H3Hc6UZvb2RD_fyQtJiN6yXW"
-      class="g-recaptcha"
-      id="recaptcha1"
-    ></div>
-
+    <form action="">
+      <div id="example1"></div>
+      <br />
+      <h3>reCaptcha V2</h3>
+    </form>
+    <form action="">
+      <div id="example2"></div>
+      <br />
+      <h3>reCaptcha V3</h3>
+    </form>
     <div id="app"></div>
+    <script type="module" src="/src/main.ts"></script>
   </body>
-  <script src="https://www.google.com/recaptcha/api.js?render=6LcHsnggAAAAAPx4H3Hc6UZvb2RD_fyQtJiN6yXW"></script>
-  <script type="text/javascript">
-    var recaptcha1;
-
-    var onloadCallback = function () {
-      //Render the recaptcha1 on the element with ID "recaptcha1"
-      recaptcha1 = grecaptcha.render("recaptcha1", {
-        sitekey: "6LcHsnggAAAAAPx4H3Hc6UZvb2RD_fyQtJiN6yXW", //Replace this with your Site key
-        theme: "",
-      });
-
-      grecaptcha.reset(recaptcha1);
-    };
-  </script>
 </html>
